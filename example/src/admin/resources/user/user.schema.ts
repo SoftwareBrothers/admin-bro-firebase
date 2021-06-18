@@ -1,4 +1,4 @@
-import { Schema } from 'admin-bro-firebase';
+import { Schema } from '@adminjs/firebase';
 
 export const userSchema: Schema = {
   name: 'string',

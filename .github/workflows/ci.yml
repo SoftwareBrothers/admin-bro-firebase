@@ -33,4 +33,4 @@ jobs:
       - name: Link local version of package
         run: yarn link
       - name: Test e2e
-        run: (cd example && yarn link admin-bro-firebase && yarn && yarn dev & yarn wait-on -t 120000 http://localhost:3000/admin) && yarn test:e2e
+        run: (cd example && yarn link @adminjs/firebase && yarn && yarn dev & yarn wait-on -t 120000 http://localhost:3000/admin) && yarn test:e2e

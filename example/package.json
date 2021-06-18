@@ -1,5 +1,5 @@
 {
-  "name": "firebase-example-admin-bro",
+  "name": "firebase-example-adminjs",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,9 +8,9 @@
     "lint": "eslint src --ext ts"
   },
   "dependencies": {
-    "admin-bro": "^2.1.0-beta.11",
-    "admin-bro-expressjs": "^2.0.0-beta.1",
-    "admin-bro-firebase": "^1.1.0",
+    "adminjs": "*",
+    "@adminjs/express": "^3.0.0",
+    "@adminjs/firebase": "^1.1.0",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "firebase": "^7.9.3",
@@ -22,7 +22,7 @@
     "@types/express": "^4.17.2",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
-    "admin-bro": "^2.1.0-beta.11",
+    "adminjs": "*",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",

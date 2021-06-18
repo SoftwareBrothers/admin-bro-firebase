@@ -1,7 +1,7 @@
 {
-  "name": "admin-bro-firebase",
+  "name": "@adminjs/firebase",
   "version": "1.0.10",
-  "description": "Firebase adapter for admin-bro",
+  "description": "Firebase adapter for AdminJS",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -21,7 +21,7 @@
     "@types/jest": "^26.0.9",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^3.8.0",
-    "admin-bro": "^2.8.0",
+    "adminjs": "*",
     "cypress": "^4.12.1",
     "cypress-dotenv": "^1.2.2",
     "dotenv": "^8.2.0",
@@ -40,7 +40,7 @@
     "wait-on": "^5.1.0"
   },
   "peerDependencies": {
-    "admin-bro": "*",
+    "adminjs": "*",
     "firebase": "^7.x",
     "firebase-admin": "^9.x",
     "firebase-functions": "^3.x"

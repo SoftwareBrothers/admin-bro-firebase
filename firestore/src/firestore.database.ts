@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { BaseDatabase, BaseResource } from 'admin-bro';
+import { BaseDatabase, BaseResource } from 'adminjs';
 import Firestore = firebase.firestore.Firestore;
 
 class FirestoreDatabase extends BaseDatabase {

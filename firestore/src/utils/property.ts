@@ -1,5 +1,5 @@
 import { FirestorePropertyType } from './schema';
-import { PropertyType } from 'admin-bro';
+import { PropertyType } from 'adminjs';
 import { isAdminProperty } from './type-guards';
 
 export const convertToAdminProperty = (

@@ -1,5 +1,4 @@
-import { BaseRecord } from 'admin-bro';
-import BaseResource from 'admin-bro/types/src/backend/adapters/base-resource';
+import { BaseRecord, BaseResource } from 'adminjs';
 import { getSchemaPaths, Schema } from './schema';
 import { pick } from 'lodash';
 import DocumentData = firebase.firestore.DocumentData;

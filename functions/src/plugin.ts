@@ -1,6 +1,6 @@
 import { Response } from 'firebase-functions';
 import { Request } from 'firebase-functions/lib/providers/https';
-import AdminBro, { AdminBroOptions, CurrentAdmin } from 'admin-bro';
+import AdminJS, { AdminJSOptions, CurrentAdmin } from 'adminjs';
 import { resolve } from 'path';
 import { match } from 'path-to-regexp';
 import cookie from 'cookie';
@@ -12,7 +12,7 @@ import { parseFiles, cleanFiles, File } from './parse-files';
 /**
  * @alias BuildHandlerReturn
  *
- * @memberof module:admin-bro-firebase-functions
+ * @memberof module:@adminjs/firebase-functions
  */
 export type BuildHandlerReturn = (
   req: Request,
@@ -22,22 +22,22 @@ export type BuildHandlerReturn = (
 /**
  * @alias BuildHandlerOptions
  *
- * @memberof module:admin-bro-firebase-functions
+ * @memberof module:@adminjs/firebase-functions
  */
 export type BuildHandlerOptions = {
   /** Region where function is deployed */
   region: string;
   /**
    * Optional before `async` hook which can be used to initialize database.
-   * if it returns something it will be used as AdminBroOptions.
+   * if it returns something it will be used as AdminJSOptions.
    */
   before?: () =>
-    | Promise<AdminBroOptions | undefined | null>
-    | AdminBroOptions
+    | Promise<AdminJSOptions | undefined | null>
+    | AdminJSOptions
     | undefined
     | null;
   /**
-   * custom authentication option. If given AdminBro will render login page
+   * custom authentication option. If given AdminJS will render login page
    */
   auth?: {
     /**
@@ -70,7 +70,7 @@ const DEFAULT_MAX_AGE = 900000;
  *
  * ```javascript
  * const functions = require('firebase-functions')
- * const { buildHandler } = require('admin-bro')
+ * const { buildHandler } = require('adminjs')
  *
  * const adminOptions = {...}
  * const region = '...'
@@ -80,19 +80,19 @@ const DEFAULT_MAX_AGE = 900000;
  * ```
  *
  * @alias buildHandler
- * @param  {AdminBroOptions} adminOptions       options which are used to initialize
- *                                              AdminBro instance
- * @param  {BuildHandlerOptions} options        custom options for admin-bro-firebase-functions
+ * @param  {AdminJSOptions} adminOptions       options which are used to initialize
+ *                                              AdminJS instance
+ * @param  {BuildHandlerOptions} options        custom options for @adminjs/firebase
  *                                              adapter
  * @return {BuildHandlerReturn}                 function which can be passed to firebase
  * @function
- * @memberof module:admin-bro-firebase-functions
+ * @memberof module:@adminjs/firebase-functions
  */
 export const buildHandler = (
-  adminOptions: AdminBroOptions,
+  adminOptions: AdminJSOptions,
   options: BuildHandlerOptions
 ): BuildHandlerReturn => {
-  let admin: AdminBro;
+  let admin: AdminJS;
 
   let rootPath: string;
   let loginPath: string;
@@ -104,12 +104,12 @@ export const buildHandler = (
 
   return async (req, res): Promise<void> => {
     if (!admin) {
-      let beforeResult: AdminBroOptions | null | undefined = null;
+      let beforeResult: AdminJSOptions | null | undefined = null;
       if (options.before) {
         beforeResult = await options.before();
       }
 
-      admin = new AdminBro(beforeResult || adminOptions);
+      admin = new AdminJS(beforeResult || adminOptions);
       ({ rootPath, loginPath, logoutPath } = admin.options);
 
       admin.options.rootPath = `/${domain}${rootPath}`;

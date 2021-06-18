@@ -3,7 +3,7 @@ export const loginPage = (loginComponent: string): string => `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Bro - Firebase</title>
+    <title>AdminJS - Firebase</title>
 </head>
 <body>
 ${loginComponent}

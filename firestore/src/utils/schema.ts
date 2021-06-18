@@ -1,4 +1,4 @@
-import { BaseProperty, PropertyType } from 'admin-bro';
+import { BaseProperty, PropertyType } from 'adminjs';
 import { FirestoreProperty } from '../firestore.property';
 import { isReference, isString } from './type-guards';
 
